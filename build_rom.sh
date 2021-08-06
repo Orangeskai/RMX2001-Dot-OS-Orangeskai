@@ -9,12 +9,12 @@ repo init --depth=1 -u git://github.com/DotOS/manifest.git -b dot11
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
 # git clone dt,kt,vt
-git clone https://github.com/SamarV-121/android_device_realme_mt6785-common -b lineage-18.1 device/realme/RMX2001
-git clone https://github.com/SamarV-121/android_device_realme_RMX2001 -b lineage-18.1 device/realme/RMX2001
-git clone https://github.com/SamarV-121/android_kernel_realme_RMX2001 -b lineage-18.1 kernel/RMX2001
+cd project
+git clone https://github.com/SamarV-121/android_device_realme_RMX2001 -b lineage-18.1 --depth=1 device/realme/RMX2001
+git clone https://github.com/SamarV-121/android_kernel_realme_RMX2001 -b lineage-18.1 --depth=1 kernel/realme/RMX2001
+git clone https://github.com/SamarV-121/proprietary_vendor_realme -b lineage-18.1 --depth=1 vendor/realme
 
 # build rom
-cd Project
 source build/envsetup.sh
 lunch dot_RMX2001-userdebug
 make bacon -j$(nproc --all)
